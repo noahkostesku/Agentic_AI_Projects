@@ -3,7 +3,7 @@ Research-Mini is an AI-driven project that automates the process of researching 
 
 ## Viewing The Workflow
 
-Go to ```researcher_mini.png```
+Go to ```research_mini.png```
 
 ## How It Works
 ### User Input: 

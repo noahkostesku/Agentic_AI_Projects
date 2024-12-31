@@ -1,7 +1,5 @@
-
-
-from typing import Annotated, Sequence, TypedDict
 import json
+from typing import Annotated, Sequence, TypedDict
 from langchain_core.messages import BaseMessage, AIMessage, HumanMessage, ToolMessage, SystemMessage
 from langgraph.graph import add_messages, StateGraph, START, END
 from langchain.tools import tool
@@ -12,12 +10,10 @@ from langchain_experimental.utilities import PythonREPL
 from langchain_ollama import ChatOllama
 
 repl = PythonREPL()
-
 @tool
 def python_repl(
     code: Annotated[str, "The python code to execute to generate your chart."],
 ):
-    """This tool runs the provided python code and outputs if the code runs successfully or not. In case of error the tool outputs details about the error."""
     try:
         result = repl.run(code)
     except BaseException as e:
@@ -49,13 +45,9 @@ class GraphState(TypedDict):
 graph_builder = StateGraph(GraphState)
 graph_builder.add_node("research_node", research_agent)
 graph_builder.add_node("writer_node", writer_agent)
-
-
 graph_builder.add_edge(START, "research_node")
 graph_builder.add_edge("research_node", "writer_node")
 graph_builder.add_edge("writer_node", END)
-
-
 graph = graph_builder.compile()
 
 

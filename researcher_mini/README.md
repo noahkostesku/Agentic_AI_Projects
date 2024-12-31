@@ -1,8 +1,7 @@
 # Overview
 Research-Mini is an AI-driven project that automates the process of researching and summarizing information. The workflow involves two intelligent agents working collaboratively to process user input, gather relevant data, and produce concise summaries in a structured format. This project is built using cutting-edge AI frameworks, including LangChain, LangGraph, and LangStudio.
 
-## Viewing The Workflow
-
+## View The Workflow
 Go to ```research_mini.png```
 
 ## How It Works

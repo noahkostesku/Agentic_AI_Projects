@@ -6,20 +6,8 @@ from langchain.tools import tool
 from langgraph.prebuilt import ToolNode
 from langgraph.prebuilt import create_react_agent
 from langchain_community.tools import DuckDuckGoSearchRun
-from langchain_experimental.utilities import PythonREPL
 from langchain_ollama import ChatOllama
 
-repl = PythonREPL()
-@tool
-def python_repl(
-    code: Annotated[str, "The python code to execute to generate your chart."],
-):
-    try:
-        result = repl.run(code)
-    except BaseException as e:
-        return f"Failed to execute. Error: {repr(e)}"
-    result_str = f"Code output: {result}"
-    return result_str
 
 llmOllama = ChatOllama(
     model="llama3.2",
